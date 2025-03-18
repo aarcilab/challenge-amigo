@@ -1,29 +1,36 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 //Crear variable array para almacenar la lista de amigos
 
+//Agregar lista de amigos
 
-let amigos=[];
+let listaAmigos=[];
+const inputAmigo= document.getElementById("amigo");
+const ulListaAmigos=document.getElementById("listaAmigos");
+const ulResultado= document.getElementById("resultado");
 
-function agregarAmigo(){ 
-    let obtenerAmigo= document.getElementById("amigo").value;
+//agregar Amigos
 
-    if(typeof obtenerAmigo == "string" && obtenerAmigo.length == 0){
-        alert("Por favor, inserte un nombre.");
-    }else{
-        amigos.push(obtenerAmigo);
-        console.log(amigos);
+
+
+function agregarAmigo(){
+    if (inputAmigo== ""){
+        alert("Ingresar un nombre por favor");
     }
-    limpiarImput();
-}
 
-function limpiarImput() {
 
-document.getElementById("amigo").value = "";
+    listaAmigos.push(inputAmigo.value);
+    ulListaAmigos.innerHTML += `<li>${inputAmigo.value}</li>`;
 
 }
 
-function mostrarAmigos(){
-    document.getElementById("listaAmigos").value = "amigos";
-
+function sortearAmigo(){
+    const random = Math.floor(Math.random() * listaAmigos.length);
+    const amigoSecreto=  listaAmigos[random] ;
+    ulResultado.innerHTML=`<li> El amigo secreto es ${amigoSecreto}</li>`
 }
+
+
+
+
+
 
